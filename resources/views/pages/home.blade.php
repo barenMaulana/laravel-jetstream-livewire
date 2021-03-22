@@ -17,7 +17,6 @@
             </div>
             <!--Right Col-->
             <div class="w-full md:w-3/5 py-6 text-center">
-                <!-- <img class="w-full md:w-4/5 z-50" src="hero.png" /> -->
                 <lottie-player src="https://assets7.lottiefiles.com/packages/lf20_qxppoequ.json"
                     background="transparent" speed="1" style="width: 300px; height: 300px;" loop autoplay>
                 </lottie-player>
@@ -73,12 +72,12 @@
                     </p>
                 </div>
                 <div class="w-full sm:w-1/2 p-6">
-                    <img src="sloth.svg" alt="" width="300">
+                    <img src="{{asset('frontend/sloth.svg')}}" alt="" width="300">
                 </div>
             </div>
             <div class="flex flex-wrap flex-col-reverse sm:flex-row">
                 <div class="w-full sm:w-1/2 p-6 mt-6">
-                    <img src="chameleon.svg" alt="" width="300">
+                    <img src="{{asset('frontend/chameleon.svg')}}" alt="" width="300">
                 </div>
                 <div class="w-full sm:w-1/2 p-6 mt-6">
                     <div class="align-middle">
@@ -103,86 +102,35 @@
     <section class="bg-white border-b py-8">
         <div class="container mx-auto flex flex-wrap pt-4 pb-12">
             <h1 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
-                Title
+                Animals
             </h1>
             <div class="w-full mb-4">
                 <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
             </div>
-            <div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
-                <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow">
-                    <a href="#" class="flex flex-wrap no-underline hover:no-underline">
-                        <p class="w-full text-gray-600 text-xs md:text-sm px-6">
-                            xGETTING STARTED
-                        </p>
-                        <div class="w-full font-bold text-xl text-gray-800 px-6">
-                            Lorem ipsum dolor sit amet.
+            @forelse ($animals as $item)
+                <div class='flex max-w-sm w-70 mx-2 my-3 bg-white shadow-2xl rounded-lg overflow-hidden mx-auto'>
+                    <div class='flex items-center w-full px-2 py-3'>
+                        <div class='mx-3 w-full'>
+                            <div class="flex flex-row mb-4">
+                                <div class="flex flex-col mb-4 ml-4 mt-1">
+                                    <div class='text-gray-600 font-semibold'>{{$item->nama}}</div>
+                                </div>
+                            </div>
+                            <div class='text-gray-400 font-medium text-sm border-2 border-gray-300 rounded-md cursor-pointer mb-10'>
+                                <img class="rounded" src="{{asset('storage/'.$item->file_name)}}">
+                            </div>
+                            <div class="flex flex-col justify-start mb-4">
+                                <p class="text-gray-700 my-2">Jenis : <span class="px-2 py-1 text-white bg-blue-500 rounded-xl"> {{$item->jenis}}</span></p>
+                                <p class="text-gray-700 my-2">makanan : <span class="px-2 py-1 text-white bg-green-500 rounded-xl">{{$item->makanan}}</span></p>
+                            </div>
                         </div>
-                        <p class="text-gray-800 text-base px-6 mb-5">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo
-                            posuere et sit
-                            amet ligula.
-                        </p>
-                    </a>
-                </div>
-                <div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6">
-                    <div class="flex items-center justify-start">
-                        <button
-                            class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
-                            Action
-                        </button>
                     </div>
                 </div>
-            </div>
-            <div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
-                <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow">
-                    <a href="#" class="flex flex-wrap no-underline hover:no-underline">
-                        <p class="w-full text-gray-600 text-xs md:text-sm px-6">
-                            xGETTING STARTED
-                        </p>
-                        <div class="w-full font-bold text-xl text-gray-800 px-6">
-                            Lorem ipsum dolor sit amet.
-                        </div>
-                        <p class="text-gray-800 text-base px-6 mb-5">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo
-                            posuere et sit
-                            amet ligula.
-                        </p>
-                    </a>
-                </div>
-                <div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6">
-                    <div class="flex items-center justify-center">
-                        <button
-                            class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
-                            Action
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
-                <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow">
-                    <a href="#" class="flex flex-wrap no-underline hover:no-underline">
-                        <p class="w-full text-gray-600 text-xs md:text-sm px-6">
-                            xGETTING STARTED
-                        </p>
-                        <div class="w-full font-bold text-xl text-gray-800 px-6">
-                            Lorem ipsum dolor sit amet.
-                        </div>
-                        <p class="text-gray-800 text-base px-6 mb-5">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo
-                            posuere et sit
-                            amet ligula.
-                        </p>
-                    </a>
-                </div>
-                <div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6">
-                    <div class="flex items-center justify-end">
-                        <button
-                            class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
-                            Action
-                        </button>
-                    </div>
-                </div>
-            </div>
+            @empty
+                <h1 class="text-center text-gray-600">
+                    Data hewan tidak tersedia
+                </h1>
+            @endforelse
         </div>
     </section>
 

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Home;
+use App\Http\Livewire\Dashboard;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +17,4 @@ use App\Http\Livewire\Home;
 
 Route::get('/', Home::class)->name('/');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', Dashboard::class)->name('dashboard');
